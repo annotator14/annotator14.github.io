@@ -73,7 +73,16 @@
     storageBucket: "annotator-e263c.appspot.com",
     messagingSenderId: "684775160149"
   };
-  firebase.initializeApp(config);
+		
+firebase.initializeApp(config);
+	</script>
+	
+	<script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-auth.js"></script>
+	<script src="/__/firebase/init.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.10.1/firebase.js"></script>
+	<script>
+  
 	var uiConfig = {
   callbacks: {
     signInSuccessWithAuthResult: function(authResult, redirectUrl) {
@@ -111,10 +120,6 @@ ui.start('#firebaseui-auth-container', uiConfig);
 	
 	
 	</script>
-	<script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-app.js"></script>
-	<script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-auth.js"></script>
-	<script src="/__/firebase/init.js"></script>
-	<script src="https://www.gstatic.com/firebasejs/5.10.1/firebase.js"></script>
 <script>
 	<script src="annotator.js"></script>
   </body>
