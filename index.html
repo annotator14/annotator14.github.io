@@ -25,7 +25,55 @@
 	<script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
 <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
 	  <script>
-		  var ui = new firebaseui.auth.AuthUI(firebase.auth());</script>
+		  var config = {
+    apiKey: "AIzaSyBxQUY7-aEBCMUHRdQU3cW0QXRwoGTlPDI",
+    authDomain: "annotator-e263c.firebaseapp.com",
+    databaseURL: "https://annotator-e263c.firebaseio.com",
+    projectId: "annotator-e263c",
+    storageBucket: "annotator-e263c.appspot.com",
+    messagingSenderId: "684775160149"
+  };
+		
+firebase.initializeApp(config);
+		  
+		  
+		  var ui = new firebaseui.auth.AuthUI(firebase.auth());
+	  var uiConfig = {
+  callbacks: {
+    signInSuccessWithAuthResult: function(authResult, redirectUrl) {
+      // User successfully signed in.
+      // Return type determines whether we continue the redirect automatically
+      // or whether we leave that to developer to handle.
+      return true;
+    },
+    uiShown: function() {
+      // The widget is rendered.
+      // Hide the loader.
+      document.getElementById('loader').style.display = 'none';
+    }
+  },
+  // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
+  signInFlow: 'popup',
+  signInSuccessUrl: '<url-to-redirect-to-on-success>',
+  signInOptions: [
+    // Leave the lines as is for the providers you want to offer your users.
+    firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+    firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+    firebase.auth.TwitterAuthProvider.PROVIDER_ID,
+    firebase.auth.GithubAuthProvider.PROVIDER_ID,
+    firebase.auth.EmailAuthProvider.PROVIDER_ID,
+    firebase.auth.PhoneAuthProvider.PROVIDER_ID
+  ],
+  // Terms of service url.
+  tosUrl: '<your-tos-url>',
+  // Privacy policy url.
+  privacyPolicyUrl: '<your-privacy-policy-url>'
+};
+
+// The start method will wait until the DOM is loaded.
+ui.start('#firebaseui-auth-container', uiConfig);
+
+	  </script>
 <style>
 	.alert{
 	text-align: center;
@@ -66,62 +114,11 @@
 
     <!-- Custom scripts for this template -->
     <script src="resume.min.js"></script>
-	<script>
-		
-	var config = {
-    apiKey: "AIzaSyBxQUY7-aEBCMUHRdQU3cW0QXRwoGTlPDI",
-    authDomain: "annotator-e263c.firebaseapp.com",
-    databaseURL: "https://annotator-e263c.firebaseio.com",
-    projectId: "annotator-e263c",
-    storageBucket: "annotator-e263c.appspot.com",
-    messagingSenderId: "684775160149"
-  };
-		
-firebase.initializeApp(config);
-	</script>
-	
 	<script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-app.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-auth.js"></script>
 	<script src="/__/firebase/init.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/5.10.1/firebase.js"></script>
-	<script>
-	var uiConfig = {
-  callbacks: {
-    signInSuccessWithAuthResult: function(authResult, redirectUrl) {
-      // User successfully signed in.
-      // Return type determines whether we continue the redirect automatically
-      // or whether we leave that to developer to handle.
-      return true;
-    },
-    uiShown: function() {
-      // The widget is rendered.
-      // Hide the loader.
-      document.getElementById('loader').style.display = 'none';
-    }
-  },
-  // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
-  signInFlow: 'popup',
-  signInSuccessUrl: '<url-to-redirect-to-on-success>',
-  signInOptions: [
-    // Leave the lines as is for the providers you want to offer your users.
-    firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-    firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-    firebase.auth.TwitterAuthProvider.PROVIDER_ID,
-    firebase.auth.GithubAuthProvider.PROVIDER_ID,
-    firebase.auth.EmailAuthProvider.PROVIDER_ID,
-    firebase.auth.PhoneAuthProvider.PROVIDER_ID
-  ],
-  // Terms of service url.
-  tosUrl: '<your-tos-url>',
-  // Privacy policy url.
-  privacyPolicyUrl: '<your-privacy-policy-url>'
-};
-
-// The start method will wait until the DOM is loaded.
-ui.start('#firebaseui-auth-container', uiConfig);
 	
-	
-	</script>
 <script>
 	<script src="annotator.js"></script>
   </body>
