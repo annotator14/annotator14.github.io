@@ -24,6 +24,10 @@
     <link href="resume.min.css" rel="stylesheet">
 	<script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
 <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+	  <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-auth.js"></script>
+	<script src="/__/firebase/init.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.10.1/firebase.js"></script>
 	  <script>
 		  var config = {
     apiKey: "AIzaSyBxQUY7-aEBCMUHRdQU3cW0QXRwoGTlPDI",
@@ -34,10 +38,10 @@
     messagingSenderId: "684775160149"
   };
 		
-firebase.initializeApp(config);
+
+	  </script>
+	  	  <script>
 		  
-		  
-		  var ui = new firebaseui.auth.AuthUI(firebase.auth());
 	  var uiConfig = {
   callbacks: {
     signInSuccessWithAuthResult: function(authResult, redirectUrl) {
@@ -69,11 +73,14 @@ firebase.initializeApp(config);
   // Privacy policy url.
   privacyPolicyUrl: '<your-privacy-policy-url>'
 };
-
+var app=firebase.initializeApp(config);
 // The start method will wait until the DOM is loaded.
+var auth = app.auth();
+var ui = new firebaseui.auth.AuthUI(auth);
 ui.start('#firebaseui-auth-container', uiConfig);
 
 	  </script>
+	  
 <style>
 	.alert{
 	text-align: center;
@@ -88,7 +95,6 @@ ui.start('#firebaseui-auth-container', uiConfig);
   </head>
 
   <body id="page-top">
-
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
       <a class="navbar-brand js-scroll-trigger" href="#page-top">
         <span class="d-block d-lg-none">My Profile</span>
@@ -114,10 +120,7 @@ ui.start('#firebaseui-auth-container', uiConfig);
 
     <!-- Custom scripts for this template -->
     <script src="resume.min.js"></script>
-	<script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-app.js"></script>
-	<script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-auth.js"></script>
-	<script src="/__/firebase/init.js"></script>
-	<script src="https://www.gstatic.com/firebasejs/5.10.1/firebase.js"></script>
+	
 	
 <script>
 	<script src="annotator.js"></script>
