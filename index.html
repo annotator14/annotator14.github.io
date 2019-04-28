@@ -24,6 +24,8 @@
     <link href="resume.min.css" rel="stylesheet">
 	<script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
 <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+	  <script>
+		  var ui = new firebaseui.auth.AuthUI(firebase.auth());</script>
 <style>
 	.alert{
 	text-align: center;
@@ -83,7 +85,6 @@ firebase.initializeApp(config);
 	<script src="/__/firebase/init.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/5.10.1/firebase.js"></script>
 	<script>
-  var ui = new firebaseui.auth.AuthUI(firebase.auth());
 	var uiConfig = {
   callbacks: {
     signInSuccessWithAuthResult: function(authResult, redirectUrl) {
